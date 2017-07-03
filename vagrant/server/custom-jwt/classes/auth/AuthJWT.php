@@ -13,9 +13,9 @@ class AuthJWT
      * @param string $token token de validación
      * @return array
      **/
-    public function doLogin($id,$token)
+    public function register($id,$token)
     {        
-        if ($token == md5($this::SECRET.$id) {
+        if ($token == md5($this::SECRET.$id)) {
             //TODO: Insertar en BD el login
             return true;
         } else
