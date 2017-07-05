@@ -1,7 +1,7 @@
 <?php
 
 use Firebase\JWT\JWT;
-$app->post("/token", function ($request, $response, $arguments) {
+$app->post("/login", function ($request, $response, $arguments) {
     $now = new DateTime();
     $future = new DateTime("now +2 hours");
     $server = $request->getServerParams();
@@ -28,7 +28,7 @@ $app->post("/dump", function ($request, $response, $arguments) {
 $app->get("/info", function ($request, $response, $arguments) {
     phpinfo();
 });
-
+ 
 $app->get("/admin", function ($request, $response, $arguments) {
     $response->write('<h1>Admin area!!</h1>');
 });

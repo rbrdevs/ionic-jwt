@@ -14,6 +14,6 @@ require __DIR__ . "/config/middleware.php";
 $app->get("/", function ($request, $response, $arguments) {
     print "Here be dragons";
 });
-require __DIR__ . "/routes/token.php";
+require __DIR__ . "/routes/login.php";
 //require __DIR__ . "/routes/todos.php";
 $app->run();
