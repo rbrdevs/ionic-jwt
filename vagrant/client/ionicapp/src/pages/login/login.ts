@@ -15,15 +15,25 @@ import { HomePage } from '../../pages/home/home';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-   
+  token: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthServiceProvider) {
+    if (this.authService.autenticated())
+      this.navCtrl.push(HomePage);      
+
   }
 
   ionViewDidLoad() {
-    console.log('ionV  iewDidLoad LoginPage');
+    console.log('ionV   iewDidLoad LoginPage');
+
   } 
 
+
   signUp() {
-    this.navCtrl.push(HomePage)
+    this.authService.postData({ user: 'user'}, 'login').then( (result) => {
+      console.log(result);
+      localStorage.setItem('userData',JSON.stringify(result));
+      //this.token = result?result.token:'';
+      this.navCtrl.push(HomePage);
+    });
   }
 }
