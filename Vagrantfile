@@ -122,7 +122,7 @@ Vagrant.configure("2") do |config|
 
   # Use NFS for the shared folder
 
-  config.vm.synced_folder "./vagrant", "/vagrant", :mount_options => ["dmode=777", "fmode=666"]
+  config.vm.synced_folder "./vagrant", "/vagrant", :mount_options => ["dmode=777", "fmode=666"], fsnotify: true, exclude: ["ionicapp/www"]
   #config.vm.synced_folder ".", "/vagrant",
   #  id: "core",
   #  :nfs => true,
