@@ -14,7 +14,7 @@ export class HomePage {
   }
 
   ionViewCanEnter() {
-    console.log('ionViewCanEnter');
+    console.log('ionViewCa nEnter');
     return this.authService.autenticated();
   }
 

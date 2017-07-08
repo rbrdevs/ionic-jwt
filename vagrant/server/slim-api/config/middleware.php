@@ -12,7 +12,7 @@ $container["token"] = function ($container) {
 $container["JwtAuthentication"] = function ($container) {
     return new JwtAuthentication([
         "path" => "/",
-        "passthrough" => ["/login", "/info"],
+        "passthrough" => ["/auth/login", "/info"],
         "secret" => '123456789',
         //"logger" => $container["logger"],
         //"relaxed" => ["192.168.50.52"],

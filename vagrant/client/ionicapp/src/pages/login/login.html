@@ -9,12 +9,12 @@
 
 
 <ion-content  class="background">
-  <ion-card>
+  <ion-card *ngIf="showLoginForm">
     <ion-card-header>
       Login
     </ion-card-header>
     <ion-card-content>
-      <ion-list no-lines>
+      <ion-list no-lines >
         <div class="spacer" style="height: 10px;"></div>
         <ion-item>
           <ion-input type="email" placeholder="Email" ></ion-input>

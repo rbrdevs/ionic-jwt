@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-let apiUrl = 'http://ionic-jwt.dev/server/slim-api/public/';
+let apiUrl = 'https://ionic-jwt.dev/server/slim-api/public/';
 
 /*
   Generated class for the AuthServiceProvider provider.
@@ -16,11 +16,18 @@ export class AuthServiceProvider {
     console.log('Hello AuthServiceProvider Provider');
   }
 
-  postData(credentials, type) {  
+  postData(data, type) {  
     return new Promise((resolve, reject) => {
-      //let headers = new Headers();
-      //let options = new RequestOptions({ headers: headers});     
-      this.http.post(apiUrl+type, {} ).subscribe( res => {
+      let userData = JSON.parse(localStorage.getItem('userData'));
+
+      let options = new RequestOptions();     
+      if (userData && userData.token) {
+        console.log(userData.token);
+        options.headers = new Headers();
+        options.headers.append('Authorization', 'Bearer ' + userData.token);     
+      }
+
+      this.http.post(apiUrl+type, data, options ).subscribe( res => {
         resolve(res.json());
       }, (err) => {
         reject(err);
@@ -28,6 +35,8 @@ export class AuthServiceProvider {
       
     });
   }
+
+
 
   autenticated() {
     let userData = localStorage.getItem('userData');
