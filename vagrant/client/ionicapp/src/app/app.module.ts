@@ -10,7 +10,6 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { HttpModule } from '@angular/http';
-import { NavController } from 'ionic-angular';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,7 @@ import { NavController } from 'ionic-angular';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthServiceProvider
+    AuthServiceProvider,
   ]
 })
 export class AppModule {}
