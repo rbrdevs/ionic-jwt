@@ -4,7 +4,7 @@ use Firebase\JWT\JWT;
 
 function generateJWT($server) {
     $now = new DateTime();
-    $future = new DateTime("now +30 seconds");
+    $future = new DateTime("now +60 seconds");
     $server = $server;
     $payload = [
         "iat" => $now->getTimeStamp(),

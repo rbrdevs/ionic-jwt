@@ -8,14 +8,17 @@ import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { UsersListPage } from '../pages/users-list/users-list';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { HttpModule } from '@angular/http';
+import { UserServiceProvider } from '../providers/user-service/user-service';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    UsersListPage
   ],
   imports: [
     BrowserModule,
@@ -26,13 +29,15 @@ import { HttpModule } from '@angular/http';
   entryComponents: [
     MyApp,
     LoginPage,
-    HomePage
+    HomePage,
+    UsersListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
+    UserServiceProvider,
   ]
 })
 export class AppModule {}

@@ -23,8 +23,6 @@ export class MyApp {
   }
 
   doLogout() {
-    localStorage.removeItem('userData');
-    this.rootPage = LoginPage;
     this.MenuCtrl.close();
     this.nav.push(LoginPage);
 

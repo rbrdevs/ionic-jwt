@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
-
+import { UsersListPage } from '../../pages/users-list/users-list';
 //@IonicPage()
 @Component({
   selector: 'page-home',
@@ -14,8 +14,11 @@ export class HomePage {
   }
 
   ionViewCanEnter() {
-    console.log('ionViewCa nEnter');
     return this.authService.autenticated();
+  }
+
+  listarUsuarios() {
+    this.navCtrl.push(UsersListPage);
   }
 
 }
